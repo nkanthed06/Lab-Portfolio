@@ -1,30 +1,91 @@
 body {
-    font: 100%/1.5 system-ui;
-    margin-inline: auto;
+  max-width: 100ch;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
 
-    img {
-      max-width: 300px;
-      width: 100%;
-      height: auto;
-      padding: 1rem;
-    }
+img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+}
 
-    nav {
-      display: flex;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid oklch(80% 3% 200);
-    }
-    
-    nav a {
-      flex: 1;
-      text-decoration: none;
-      color: inherit;
-      text-align: center;
-      padding: 0.5em;
-    }
-    nav a.current {
-      border-bottom: 0.4em solid oklch(80% 3% 200);
-      padding-bottom: 0.1em;
-    }
-    
-  }
+nav {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid oklch(80% 3% 200);
+}
+
+nav a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+  transition: 0.2s;
+}
+
+nav a.current {
+  border-bottom: 0.4em solid oklch(80% 3% 200);
+  padding-bottom: 0.1em;
+}
+:root {
+  --color-accent: oklch(65% 50% 0);
+}
+
+html {
+  accent-color: var(--color-accent);
+}
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+}
+input,
+textarea,
+button {
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+label {
+  display: contents;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  grid-column: 2;
+}
+
+button {
+  grid-column: 1 / -1;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: 400%;
+}
