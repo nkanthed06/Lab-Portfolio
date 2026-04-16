@@ -89,3 +89,31 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
   font-size: 400%;
 }
+
+/* Step 4.1 - Auto dark mode */
+html {
+  color-scheme: light dark;
+}
+
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
+}
+
+nav a.current {
+  border-bottom-color: var(--border-color);
+}
+
+/* Step 4.3 - Position the switcher top right */
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
+
+
+input, textarea, button, select {
+  font: inherit;
+}

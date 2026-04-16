@@ -46,3 +46,52 @@ for (let p of pages) {
 
   nav.append(a);
 }
+
+// Step 4.2 - Inject the theme switcher
+document.body.insertAdjacentHTML(
+    'afterbegin',
+    `<label class="color-scheme">
+      Theme:
+      <select>
+        <option value="light dark">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>`
+  );
+  
+  // Step 4.4 - Make it actually work
+  const select = document.querySelector('.color-scheme select');
+  
+  // Step 4.5 - Load saved preference
+  if ("colorScheme" in localStorage) {
+    const saved = localStorage.colorScheme;
+    document.documentElement.style.setProperty('color-scheme', saved);
+    select.value = saved;
+  }
+  
+  select.addEventListener('input', function (event) {
+    const value = event.target.value;
+    document.documentElement.style.setProperty('color-scheme', value);
+    localStorage.colorScheme = value; // save preference
+  });
+
+  // Step 5 - Better contact form
+const form = document.querySelector('form');
+
+form?.addEventListener('submit', function (event) {
+  event.preventDefault(); // stop default submission
+
+  const data = new FormData(form);
+  let url = form.action + '?';
+
+  for (let [name, value] of data) {
+    url += `${name}=${encodeURIComponent(value)}&`;
+  }
+
+  // Remove trailing &
+  url = url.slice(0, -1);
+
+  window.open(url);
+
+});
