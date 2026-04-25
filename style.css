@@ -117,3 +117,22 @@ nav a.current {
 input, textarea, button, select {
   font: inherit;
 }
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#profile-stats dt {
+  grid-row: 1;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: gray;
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
